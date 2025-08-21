@@ -13,6 +13,19 @@ function App() {
           <Route path="/beneficios" element={<Beneficios />} />
         </Routes>
       </Router>
+      <div style={{ 
+        position: 'fixed', 
+        bottom: '10px', 
+        right: '10px', 
+        background: 'rgba(0,0,0,0.7)', 
+        color: 'white', 
+        padding: '5px 10px', 
+        borderRadius: '5px', 
+        fontSize: '12px',
+        zIndex: 1000
+      }}>
+        v1.1 - {new Date().toLocaleString()}
+      </div>
     </div>
   )
 }

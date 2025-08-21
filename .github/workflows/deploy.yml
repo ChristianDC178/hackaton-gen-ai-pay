@@ -1,14 +1,18 @@
-name: Deploy to AWS S3 and CloudFront
+name: Deploy to AWS S3 and CloudFront (DISABLED)
 
+# GitHub Actions deshabilitado - usando deploy manual exclusivamente
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  workflow_dispatch: # Solo ejecución manual desde GitHub UI
+  # push:
+  #   branches: [ main ]
+  # pull_request:
+  #   branches: [ main ]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    # Condición que nunca se cumple para deshabilitar completamente
+    if: false
     
     steps:
     - name: Checkout code

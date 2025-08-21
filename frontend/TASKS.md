@@ -1,9 +1,9 @@
-# TASKS - Aplicación Web React + TypeScript
+# TASKS - Frontend React + TypeScript
 
 ## 1. Configuración del Proyecto
 - [x] Inicializar proyecto con Vite + React + TypeScript
 - [x] Configurar estructura de carpetas (components, pages, hooks, utils, types)
-- [ ] Instalar dependencias necesarias (React Router, Axios, etc.)
+- [x] Instalar dependencias necesarias (React Router, etc.)
 - [ ] Configurar ESLint y Prettier
 - [ ] Configurar variables de entorno
 
@@ -12,7 +12,7 @@
 - [x] Crear sistema de diseño base (colores, tipografías, espaciados)
 - [x] Implementar componentes reutilizables
 - [x] Desarrollar páginas principales según Figma
-- [ ] Implementar navegación y routing
+- [x] Implementar navegación y routing
 - [x] Añadir responsividad para diferentes dispositivos
 - [ ] Implementar estados de carga y error
 
@@ -24,25 +24,33 @@
 - [ ] Añadir animaciones y transiciones
 
 ## 4. Build y Optimización
-- [ ] Configurar build de producción con Vite
+- [x] Configurar build de producción con Vite
 - [ ] Optimizar bundle size
 - [ ] Configurar lazy loading para componentes
 - [ ] Optimizar imágenes y assets
 - [ ] Configurar PWA (si es necesario)
 
-## 5. Infraestructura AWS S3
-- [x] Crear bucket S3 para hosting estático
+## 5. Infraestructura AWS (Frontend)
+- [x] Crear bucket S3 para hosting estático (`banking-app-hackaton-frontend`)
 - [x] Configurar S3 website hosting
+- [x] Configurar política de acceso público
 - [x] Subir archivos de aplicación
-- [ ] Configurar CloudFront (opcional)
-- [ ] Configurar dominio personalizado (opcional)
+- [x] Configurar CloudFront Distribution (ID: E2A2U5E64JY2OG)
+- [x] Configurar dominio CloudFront: d1r8xtqjhx68zh.cloudfront.net
+- [x] Configurar SPA routing (404 → index.html)
+- [x] Configurar HTTPS con CloudFront
 
-## 6. Deployment Completado
+## 6. Deployment Automatizado (Frontend)
+- [x] Crear script de deploy manual (`./deploy.sh`)
+- [x] Configurar sync automático a S3
+- [x] Configurar invalidación automática de CloudFront
 - [x] Build de aplicación exitoso
-- [x] Deploy a S3 completado
-- [x] Website disponible en: http://banking-app-hackaton-2024.s3-website-us-west-2.amazonaws.com
+- [x] Deploy completado y funcionando
+- [x] Website disponible en:
+  - **CloudFront (HTTPS)**: https://d1r8xtqjhx68zh.cloudfront.net/
+  - **S3 Direct**: http://banking-app-hackaton-frontend.s3-website.us-west-2.amazonaws.com/
 - [x] Testing en ambiente de producción
-- [ ] Configurar HTTPS con CloudFront (recomendado)
+- [x] GitHub Actions configurado pero deshabilitado (deploy manual preferido)
 
 ## 7. Testing y QA
 - [ ] Configurar testing unitario (Jest + React Testing Library)
@@ -52,7 +60,22 @@
 - [ ] Performance testing
 
 ## 8. Documentación
+- [x] Crear README específico para frontend
+- [x] Documentar proceso de deployment manual
+- [x] Actualizar TASKS.md con estado actual
 - [ ] Documentar componentes principales
-- [ ] Crear guía de instalación y desarrollo
-- [ ] Documentar proceso de deployment
 - [ ] Crear changelog
+
+## 9. Backend (Futuro)
+- [ ] Diseñar API REST
+- [ ] Configurar base de datos
+- [ ] Implementar autenticación
+- [ ] Crear endpoints para funcionalidades bancarias
+- [ ] Configurar infraestructura AWS para backend
+- [ ] Integrar frontend con backend
+
+## Notas de Deploy
+- **Método**: Deploy manual exclusivamente con `./deploy.sh`
+- **GitHub Actions**: Configurado pero deshabilitado por elección
+- **Infraestructura**: S3 + CloudFront completamente funcional
+- **Tiempo de propagación**: CloudFront toma 5-15 minutos en actualizar
