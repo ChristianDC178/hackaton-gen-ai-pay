@@ -282,8 +282,11 @@ json_data = """
 
 
 #def get_benefits(event, context):
-def get_benefits():
+def get_benefits(province):
   print("### Requesting --> get_benefits")
+
+  if province == '':
+    province = "Mendoza"  
 
   print("### Creating agent --> get_benefits")
   # Initialize your agent
@@ -295,13 +298,20 @@ def get_benefits():
   print("###Requesting --> llm")
 
 # Send a message to the agent
-  response = agent("""Estoy en Mendoza que promociones me quedan más cerca. 
-                      Dale la salida en formato json, asegurate de tener los campos de name, benefitValue, days, heading, locations""")
+  response = agent("""Estoy en mendoza que promociones me quedan más cerca. 
+                      Dale la salida en formato json, asegurate de tener los campos de name, benefitValue, days, heading, locations. Y agrega un campo message con un saludo inicial preparado por ti""")
   print(response)
 
 
 def lambda_handler(event, context):
     print("### Requesting --> lambda_handler")
-    return get_benefits()
+
+    body = json.loads(event.get('body', '{}'))
+    print(body)
+
+    province = body.get('province', '')
+    print(f"Province received: {province}")
+    
+    return get_benefits(province)
 
 get_benefits()
