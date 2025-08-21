@@ -1,0 +1,76 @@
+.pepa-helper {
+    position: absolute;
+    bottom: 120px;
+    right: 50px;
+    z-index: 10;
+    animation: pepaFloat 3s ease-in-out infinite;
+    width: 80px;
+    height: 80px;
+    background: white;
+    border: 3px solid #4c63d2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(76, 99, 210, 0.3);
+    cursor: pointer;
+}
+
+.pepa-image {
+    width: 50px;
+    height: 50px;
+    animation: pepaBounce 2s ease-in-out infinite;
+}
+
+.pepa-fallback {
+    font-size: 40px;
+    animation: pepaBounce 2s ease-in-out infinite;
+    display: none;
+}
+
+.pepa-helper:has(.pepa-image[style*="display: none"]) .pepa-fallback {
+    display: block;
+}
+
+.pepa-helper:hover {
+    box-shadow: 0 6px 20px rgba(76, 99, 210, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Fallback si la imagen no carga */
+.pepa-image[style*="display: none"] + .pepa-fallback {
+    display: block;
+}
+
+/* Animaciones */
+@keyframes pepaFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+
+@keyframes pepaBounce {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes pepaExcited {
+    0%, 100% {
+        transform: rotate(0deg) scale(1);
+    }
+    25% {
+        transform: rotate(-5deg) scale(1.1);
+    }
+    75% {
+        transform: rotate(5deg) scale(1.1);
+    }
+}

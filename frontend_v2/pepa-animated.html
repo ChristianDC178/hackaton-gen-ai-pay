@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pepa Animada</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 50px;
+            background: linear-gradient(135deg, #4c63d2 0%, #6366f1 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .pepa-container {
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .pepa-pig {
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+
+        /* Cuerpo del cerdito */
+        .pig-body {
+            width: 180px;
+            height: 120px;
+            background: #e8f2ff;
+            border: 4px solid #1e3a5f;
+            border-radius: 60px;
+            position: absolute;
+            top: 40px;
+            left: 10px;
+        }
+
+        /* Cabeza */
+        .pig-head {
+            width: 100px;
+            height: 80px;
+            background: #e8f2ff;
+            border: 4px solid #1e3a5f;
+            border-radius: 50px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        /* Orejas */
+        .pig-ear {
+            width: 25px;
+            height: 35px;
+            background: #e8f2ff;
+            border: 4px solid #1e3a5f;
+            border-radius: 15px 15px 5px 5px;
+            position: absolute;
+            top: 5px;
+        }
+
+        .pig-ear.left {
+            left: 15px;
+            transform: rotate(-20deg);
+        }
+
+        .pig-ear.right {
+            right: 15px;
+            transform: rotate(20deg);
+        }
+
+        /* Ojos */
+        .pig-eye {
+            width: 8px;
+            height: 12px;
+            background: #1e3a5f;
+            border-radius: 50%;
+            position: absolute;
+            top: 35px;
+            animation: blink 4s infinite;
+        }
+
+        .pig-eye.left {
+            left: 35px;
+        }
+
+        .pig-eye.right {
+            right: 35px;
+            animation: wink 6s infinite;
+        }
+
+        /* Hocico */
+        .pig-snout {
+            width: 40px;
+            height: 25px;
+            background: #e8f2ff;
+            border: 4px solid #1e3a5f;
+            border-radius: 20px;
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Fosas nasales */
+        .pig-nostril {
+            width: 4px;
+            height: 8px;
+            background: #1e3a5f;
+            border-radius: 50%;
+            position: absolute;
+            top: 8px;
+        }
+
+        .pig-nostril.left {
+            left: 10px;
+        }
+
+        .pig-nostril.right {
+            right: 10px;
+        }
+
+        /* Sonrisa */
+        .pig-smile {
+            width: 20px;
+            height: 10px;
+            border: 3px solid #1e3a5f;
+            border-top: none;
+            border-radius: 0 0 20px 20px;
+            position: absolute;
+            bottom: 25px;
+            right: 15px;
+            animation: smile 5s infinite;
+        }
+
+        /* Patas */
+        .pig-leg {
+            width: 20px;
+            height: 30px;
+            background: #e8f2ff;
+            border: 4px solid #1e3a5f;
+            border-radius: 0 0 10px 10px;
+            position: absolute;
+            bottom: -10px;
+        }
+
+        .pig-leg.front-left {
+            left: 30px;
+        }
+
+        .pig-leg.front-right {
+            left: 60px;
+        }
+
+        .pig-leg.back-left {
+            right: 60px;
+        }
+
+        .pig-leg.back-right {
+            right: 30px;
+        }
+
+        /* Cola */
+        .pig-tail {
+            width: 15px;
+            height: 15px;
+            border: 4px solid #1e3a5f;
+            border-radius: 50%;
+            border-left: none;
+            border-bottom: none;
+            position: absolute;
+            top: 60px;
+            right: -5px;
+            transform: rotate(45deg);
+            animation: wagTail 2s ease-in-out infinite;
+        }
+
+        /* Ranura de alcancía */
+        .pig-slot {
+            width: 40px;
+            height: 4px;
+            background: #1e3a5f;
+            border-radius: 2px;
+            position: absolute;
+            top: 50px;
+            right: 40px;
+        }
+
+        /* Texto de ayuda */
+        .help-text {
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            text-align: center;
+            animation: pulse 2s infinite;
+        }
+
+        /* Animaciones */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes blink {
+            0%, 90%, 100% {
+                height: 12px;
+            }
+            95% {
+                height: 2px;
+            }
+        }
+
+        @keyframes wink {
+            0%, 85%, 100% {
+                height: 12px;
+            }
+            87%, 93% {
+                height: 2px;
+            }
+        }
+
+        @keyframes wagTail {
+            0%, 100% {
+                transform: rotate(45deg);
+            }
+            50% {
+                transform: rotate(25deg);
+            }
+        }
+
+        @keyframes smile {
+            0%, 80%, 100% {
+                opacity: 1;
+            }
+            85%, 95% {
+                opacity: 0.3;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="pepa-container">
+        <div class="pepa-pig">
+            <!-- Cuerpo -->
+            <div class="pig-body"></div>
+            
+            <!-- Cabeza -->
+            <div class="pig-head">
+                <!-- Orejas -->
+                <div class="pig-ear left"></div>
+                <div class="pig-ear right"></div>
+                
+                <!-- Ojos -->
+                <div class="pig-eye left"></div>
+                <div class="pig-eye right"></div>
+                
+                <!-- Hocico -->
+                <div class="pig-snout">
+                    <div class="pig-nostril left"></div>
+                    <div class="pig-nostril right"></div>
+                </div>
+                
+                <!-- Sonrisa -->
+                <div class="pig-smile"></div>
+            </div>
+            
+            <!-- Patas -->
+            <div class="pig-leg front-left"></div>
+            <div class="pig-leg front-right"></div>
+            <div class="pig-leg back-left"></div>
+            <div class="pig-leg back-right"></div>
+            
+            <!-- Cola -->
+            <div class="pig-tail"></div>
+            
+            <!-- Ranura -->
+            <div class="pig-slot"></div>
+        </div>
+        
+        <div class="help-text">¡Estoy aquí para ayudarte!</div>
+    </div>
+</body>
+</html>
