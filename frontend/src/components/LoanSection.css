@@ -1,0 +1,34 @@
+.loan-section {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 16px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.loan-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.loan-label {
+  font-size: 14px;
+  color: #6B7280;
+}
+
+.loan-amount {
+  font-size: 14px;
+  color: #111827;
+  font-weight: 500;
+}
+
+.loan-btn {
+  background: none;
+  border: none;
+  color: #4F46E5;
+  font-size: 14px;
+  cursor: pointer;
+}

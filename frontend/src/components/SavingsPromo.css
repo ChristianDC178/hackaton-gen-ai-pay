@@ -1,0 +1,40 @@
+.savings-promo {
+  background: linear-gradient(135deg, #EC4899 0%, #BE185D 100%);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: white;
+}
+
+.savings-content {
+  flex: 1;
+}
+
+.savings-content h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.savings-content p {
+  font-size: 14px;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.savings-btn {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.savings-icon {
+  font-size: 40px;
+}

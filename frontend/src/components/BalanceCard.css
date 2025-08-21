@@ -1,0 +1,56 @@
+.balance-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin: -30px 0 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.balance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.balance-label {
+  color: #6B7280;
+  font-size: 14px;
+}
+
+.balance-change {
+  color: #10B981;
+  font-size: 14px;
+}
+
+.balance-amount {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.currency {
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.amount {
+  font-size: 36px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.cents {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.arrow {
+  font-size: 24px;
+  color: #6B7280;
+  margin-left: auto;
+}
