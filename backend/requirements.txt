@@ -1,0 +1,14 @@
+# PostgreSQL dependencies for AWS Lambda
+psycopg2-binary==2.9.9
+
+# AWS SDK
+boto3==1.34.34
+
+# Optional: Database connection pooling
+SQLAlchemy==2.0.25
+
+# Strands AI framework
+strands
+
+# AWS Bedrock
+boto3==1.34.34
