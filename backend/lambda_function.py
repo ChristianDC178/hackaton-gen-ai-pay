@@ -282,26 +282,48 @@ json_data = """
 
 
 #def get_benefits(event, context):
-def get_benefits():
+def get_benefits(province, name):
   print("### Requesting --> get_benefits")
 
+  if province == '':
+    province = "Mendoza"  
+
   print("### Creating agent --> get_benefits")
-  # Initialize your agent
+  
   agent = Agent(
-        model="us.amazon.nova-pro-v1:0",  # Optional: Specify the model ID
-        system_prompt="Eres un asistente de recomendaciones de promociones y sucursales" + json_data,
+        model="us.amazon.nova-pro-v1:0",
+        system_prompt=f"""Eres un asistente de recomendaciones de promociones y sucursales.
+                          Cuando te pregunten por promociones debes usar los siguientes datos {json_data}""",
     )
 
   print("###Requesting --> llm")
 
 # Send a message to the agent
-  response = agent("""Estoy en Mendoza que promociones me quedan más cerca. 
-                      Dale la salida en formato json, asegurate de tener los campos de name, benefitValue, days, heading, locations""")
-  print(response)
+  response = agent(f"""Filtra las promociones en la provincia {province}. 
+                      Dale la salida en formato json, asegurate de tener los campos de name, benefitValue, days, heading, locations.
+                      Y agrega un campo message con un saludo inicial preparado por ti usando {name}.
+                      Solo debes retornar un único json con  toda información, no usar markdown""")
+  
+  #response2 = agent(f"""Filtra las promociones en la provincia {province}. 
+  #                    Solo debes retornar un único json con  toda información, no usar markdown""")
+
+  #print(response)
+  #print(response2)
+  return response
 
 
 def lambda_handler(event, context):
     print("### Requesting --> lambda_handler")
-    return get_benefits()
 
-get_benefits()
+    body = json.loads(event.get('body', '{}'))
+    print(body)
+
+    province = body.get('province', '')
+    print(f"Province received: {province}")
+
+    name = body.get('name', '')
+    print(f"Province received: {name}")
+    
+    return get_benefits(province, name)
+
+#get_benefits("Cordoba", "Juan")
