@@ -8,12 +8,10 @@ import ServicesSection from '../components/ServicesSection'
 import BottomNav from '../components/BottomNav'
 import PepaModal from '../components/PepaModal'
 import './Home.css'
-import { useGetApi } from '../hooks/use-api'
+import { usePostApi } from '../hooks/use-api'
 
 const Home: React.FC = () => {
-  const { data } = useGetApi()
   const [isPepaModalOpen, setIsPepaModalOpen] = useState(false)
-  console.log(data)
 
   return (
     <div className="home">
