@@ -2,6 +2,8 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Beneficios from './pages/Beneficios'
+import Login from './pages/Login'
+import ProtectedRoute from './components/ProtectedRoute'
 import './App.css'
 
 function App() {
@@ -9,8 +11,10 @@ function App() {
     <div className="app">
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/beneficios" element={<Beneficios />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+          <Route path="/beneficios" element={<ProtectedRoute><Beneficios /></ProtectedRoute>} />
         </Routes>
       </Router>
       <div style={{ 

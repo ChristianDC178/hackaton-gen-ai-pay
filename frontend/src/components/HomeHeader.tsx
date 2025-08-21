@@ -1,7 +1,17 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import './HomeHeader.css'
+import { useAuthStore } from '../stores/auth-store'
 
 const HomeHeader: React.FC = () => {
+  const { user, logout } = useAuthStore()
+  const navigate = useNavigate()
+  
+  const handleLogout = () => {
+    logout()
+    navigate('/login')
+  }
+
   return (
     <div className="home-header">
       <div className="status-bar">
@@ -11,9 +21,9 @@ const HomeHeader: React.FC = () => {
       </div>
       <div className="header-content">
         <div className="profile">
-          <div className="avatar">R</div>
+          <div className="avatar" onClick={handleLogout} style={{ cursor: 'pointer' }}>R</div>
           <div className="greeting">
-            <span className="hello">Hola, Roberto</span>
+            <span className="hello">Hola, {user?.name}</span>
             <span className="subtitle">Ver más info</span>
           </div>
         </div>
