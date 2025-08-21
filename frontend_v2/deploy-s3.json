@@ -1,0 +1,13 @@
+{
+  "deployment": {
+    "service": "Amazon S3 + CloudFront",
+    "steps": [
+      "1. Crear bucket S3 con hosting web habilitado",
+      "2. Subir archivos: index.html, styles.css, script.js",
+      "3. Configurar CloudFront distribution",
+      "4. Obtener URL pública"
+    ],
+    "cost": "~$1-2 USD/mes para pruebas",
+    "time": "15-20 minutos"
+  }
+}

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Pay - Chatbot de Beneficios Inteligente</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            overflow: hidden;
+        }
+        
+        .presentation {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .slide {
+            display: none;
+            width: 90%;
+            max-width: 1200px;
+            background: white;
+            border-radius: 20px;
+            padding: 60px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            animation: slideIn 0.5s ease-in-out;
+        }
+        
+        .slide.active {
+            display: block;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .logo {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 3em;
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: 2.5em;
+            color: #667eea;
+            margin-bottom: 40px;
+        }
+        
+        h3 {
+            font-size: 1.8em;
+            color: #555;
+            margin-bottom: 25px;
+        }
+        
+        p, li {
+            font-size: 1.3em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 30px 0;
+        }
+        
+        .problem-box, .solution-box {
+            padding: 30px;
+            border-radius: 15px;
+            text-align: left;
+        }
+        
+        .problem-box {
+            background: #ffe6e6;
+            border-left: 5px solid #ff4757;
+        }
+        
+        .solution-box {
+            background: #e6ffe6;
+            border-left: 5px solid #2ed573;
+        }
+        
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .metric {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .metric-number {
+            font-size: 3em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+        }
+        
+        .nav-btn {
+            padding: 15px 30px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+        
+        .nav-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .slide-counter {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: rgba(255,255,255,0.9);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        ul {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .persona-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .tech-item {
+            background: #667eea;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <!-- Slide 1: Título -->
+        <div class="slide active">
+            <div class="logo">Personal Pay</div>
+            <h1>Chatbot de Beneficios Inteligente</h1>
+            <div class="highlight">
+                <h3>Revolucionando la experiencia del usuario con IA</h3>
+                <p>Ayudamos a nuestros usuarios a maximizar sus beneficios y ahorros de manera inteligente</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: Contexto de la Empresa -->
+        <div class="slide">
+            <h2>Personal Pay - Nuestra Fintech</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Servicios Principales</h3>
+                    <ul>
+                        <li>Beneficios (reintegros y descuentos)</li>
+                        <li>Pago de servicios</li>
+                        <li>Pagos con tarjeta y QR</li>
+                        <li>Transferencias</li>
+                        <li>Programa de fidelización por niveles</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Stack Tecnológico</h3>
+                    <div class="tech-stack">
+                        <div class="tech-item">React Native</div>
+                        <div class="tech-item">NestJS</div>
+                        <div class="tech-item">PostgreSQL</div>
+                        <div class="tech-item">AWS</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Nuestra Persona -->
+        <div class="slide">
+            <h2>Conoce a Marcela</h2>
+            <div class="persona-card">
+                <h3>Marcela Pay, 35 años</h3>
+                <div class="two-column">
+                    <div>
+                        <h4>Perfil Demográfico</h4>
+                        <ul>
+                            <li>Trabajadora en relación de dependencia</li>
+                            <li>Vive en zona céntrica</li>
+                            <li>No bancarizada</li>
+                            <li>Servicios y tarjetas a su nombre</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Comportamiento</h4>
+                        <ul>
+                            <li>Ahorradora y oportunista</li>
+                            <li>Presta mucha atención a los precios</li>
+                            <li>Hace cuentas a principio de mes</li>
+                            <li>Se adapta a la tecnología</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: El Problema -->
+        <div class="slide">
+            <h2>El Problema Actual</h2>
+            <div class="two-column">
+                <div class="problem-box">
+                    <h3>🚫 Pain Points</h3>
+                    <ul>
+                        <li>No recuerda qué beneficios tiene disponibles</li>
+                        <li>Debe navegar un extenso catálogo</li>
+                        <li>Pierde oportunidades de ahorro</li>
+                        <li>Experiencia frustrante al buscar beneficios</li>
+                    </ul>
+                </div>
+                <div class="solution-box">
+                    <h3>💡 Oportunidades</h3>
+                    <ul>
+                        <li>Datos en tiempo real</li>
+                        <li>Ubicación del usuario</li>
+                        <li>Historial de descuentos</li>
+                        <li>Comportamiento personalizado</li>
+                        <li>Gestión inteligente del saldo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: La Gran Idea -->
+        <div class="slide">
+            <h2>La Gran Idea</h2>
+            <div class="highlight">
+                <h3>🎯 Visión</h3>
+                <p>Obtener datos en tiempo real, analizarlos y actuar proactivamente para ayudar al usuario a usar su saldo de manera inteligente</p>
+            </div>
+            <div class="two-column">
+                <div>
+                    <h3>Para el Usuario</h3>
+                    <ul>
+                        <li>Mejor experiencia personalizada</li>
+                        <li>Cuidado de su economía</li>
+                        <li>Menos tiempo buscando beneficios</li>
+                        <li>Más ahorros automáticos</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Para Personal Pay</h3>
+                    <ul>
+                        <li>Incremento del TPV</li>
+                        <li>Reducción del churn</li>
+                        <li>Mayor engagement</li>
+                        <li>Más revenue</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: La Solución - MVP -->
+        <div class="slide">
+            <h2>Solución: Chatbot de Beneficios</h2>
+            <div class="highlight">
+                <h3>🤖 MVP - Chatbot Inteligente</h3>
+                <p>Un asistente conversacional que recomienda beneficios convenientes basado en el contexto del usuario</p>
+            </div>
+            <div class="two-column">
+                <div>
+                    <h3>Funcionalidades Clave</h3>
+                    <ul>
+                        <li>Recomendaciones personalizadas</li>
+                        <li>Búsqueda conversacional</li>
+                        <li>Filtros por ubicación</li>
+                        <li>Integración con catálogo existente</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Ventajas Técnicas</h3>
+                    <ul>
+                        <li>Beneficios ya categorizados</li>
+                        <li>Ubicaciones bien definidas</li>
+                        <li>Infraestructura existente</li>
+                        <li>Integración nativa en la app</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Casos de Uso -->
+        <div class="slide">
+            <h2>Casos de Uso del Chatbot</h2>
+            <div class="metrics">
+                <div class="metric">
+                    <div class="metric-number">💬</div>
+                    <h4>"Quiero ahorrar en supermercado"</h4>
+                    <p>El bot sugiere descuentos cercanos en supermercados</p>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">📍</div>
+                    <h4>"Beneficios cerca mío"</h4>
+                    <p>Recomendaciones basadas en ubicación actual</p>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">💰</div>
+                    <h4>"Cómo usar mi saldo"</h4>
+                    <p>Sugerencias para maximizar beneficios con el saldo disponible</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Impacto Esperado -->
+        <div class="slide">
+            <h2>Impacto Esperado</h2>
+            <div class="metrics">
+                <div class="metric">
+                    <div class="metric-number">↑</div>
+                    <h4>Engagement</h4>
+                    <p>Mayor uso de beneficios por facilidad de descubrimiento</p>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">💳</div>
+                    <h4>TPV</h4>
+                    <p>Incremento en transacciones por recomendaciones personalizadas</p>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">🎯</div>
+                    <h4>Retención</h4>
+                    <p>Reducción del churn por mejor experiencia</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Próximos Pasos -->
+        <div class="slide">
+            <h2>Próximos Pasos</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Fase 1 - MVP (4 semanas)</h3>
+                    <ul>
+                        <li>Desarrollo del chatbot básico</li>
+                        <li>Integración con catálogo existente</li>
+                        <li>Filtros por categoría y ubicación</li>
+                        <li>Testing interno</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Fase 2 - Evolución (8 semanas)</h3>
+                    <ul>
+                        <li>IA para recomendaciones personalizadas</li>
+                        <li>Análisis de comportamiento</li>
+                        <li>Notificaciones proactivas</li>
+                        <li>Métricas y optimización</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="highlight">
+                <h3>🚀 ¡Empecemos a revolucionar la experiencia de nuestros usuarios!</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-counter">
+        <span id="current-slide">1</span> / <span id="total-slides">9</span>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" id="prev-btn" onclick="previousSlide()">← Anterior</button>
+        <button class="nav-btn" id="next-btn" onclick="nextSlide()">Siguiente →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        document.getElementById('total-slides').textContent = totalSlides;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+            
+            // Update navigation buttons
+            document.getElementById('prev-btn').disabled = currentSlide === 0;
+            document.getElementById('next-btn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                showSlide(currentSlide + 1);
+            }
+        }
+
+        function previousSlide() {
+            if (currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                previousSlide();
+            }
+        });
+
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+</html>

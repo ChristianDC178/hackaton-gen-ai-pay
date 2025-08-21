@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Pay</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pepa-component.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="user-info">
+                    <div class="avatar">
+                        <span>G</span>
+                    </div>
+                    <div class="greeting">
+                        <span class="hello">Hola, Gonzalo</span>
+                        <span class="subtitle">Ver más info ></span>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <i class="far fa-calendar-alt"></i>
+                    <i class="far fa-bell"></i>
+                </div>
+            </div>
+            
+            <!-- Level Badge -->
+            <div class="level-badge">
+                <div class="level-icon">2</div>
+                <span>¡Estás en Nivel 2!</span>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </header>
+
+        <!-- Balance Card -->
+        <div class="balance-card">
+            <div class="balance-header">
+                <span class="balance-label">Mi dinero</span>
+                <i class="far fa-eye toggle-balance"></i>
+                <div class="percentage-badge">↗ %</div>
+            </div>
+            <div class="balance-amount">$19.256<sup>96</sup></div>
+            <i class="fas fa-chevron-right balance-arrow"></i>
+            <div class="balance-actions">
+                <button class="btn-action secondary">
+                    Ingresá dinero
+                </button>
+                <button class="btn-action secondary">
+                    Transferí dinero
+                </button>
+                <button class="btn-action primary">
+                    Pedí tu tarjeta
+                </button>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <div class="action-item">
+                <div class="action-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <span>Recargar celular</span>
+            </div>
+            <div class="action-item">
+                <div class="action-icon">
+                    <i class="fas fa-bus"></i>
+                </div>
+                <span>Recargar transporte</span>
+            </div>
+            <div class="action-item">
+                <div class="action-icon">
+                    <i class="fas fa-file-invoice"></i>
+                </div>
+                <span>Pagar servicios</span>
+            </div>
+            <div class="action-item">
+                <div class="action-icon">
+                    <i class="fas fa-cash-register"></i>
+                </div>
+                <span>Cobrar y vender</span>
+                <div class="new-badge">Nuevo</div>
+            </div>
+        </div>
+
+        <!-- Visa Card Promo -->
+        <div class="visa-promo">
+            <div class="promo-content">
+                <div class="promo-text">
+                    <strong>PEDÍ TU TARJETA VISA</strong>
+                    <p>Comprá en cualquier comercio y obtené descuentos y reintegros.</p>
+                    <span class="activate-link">Activar ahora ></span>
+                </div>
+                <div class="visa-card">
+                    <div class="card-icon">VISA</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommendations -->
+        <div class="recommendations">
+            <h3>Te recomendamos</h3>
+            <div class="recommendation-item">
+                <div class="rec-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="rec-content">
+                    <strong>¡Hacé crecer tu plata todos los días!</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <div class="nav-item active">
+                <i class="fas fa-home"></i>
+                <span>Inicio</span>
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-wallet"></i>
+                <span>Billetera</span>
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-gift"></i>
+                <span>Beneficios</span>
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-piggy-bank"></i>
+                <span>Ahorros</span>
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-ellipsis-h"></i>
+                <span>Más</span>
+            </div>
+        </nav>
+        
+        <!-- Pepa Helper -->
+        <div class="pepa-helper">
+            <img src="pepa-desktop.png" alt="Pepa" class="pepa-image" onerror="this.style.display='none'">
+            <div class="pepa-fallback">🐷</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
