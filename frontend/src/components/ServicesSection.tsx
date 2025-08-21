@@ -6,7 +6,6 @@ const ServicesSection: React.FC = () => {
     <div className="services-section">
       <div className="service-card">
         <div className="service-header">
-          <span className="service-badge">Nuevo</span>
           <span className="service-title">TelePASE</span>
         </div>
         <span className="service-icon">🚗</span>

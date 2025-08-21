@@ -5,91 +5,102 @@
   transform: translateX(-50%);
   width: 100%;
   max-width: 430px;
-  background: white;
+  background: var(--surface-white);
   display: flex;
   justify-content: space-around;
-  padding: 12px 0 20px;
-  border-top: 1px solid #e5e7eb;
+  padding: 16px 8px 24px;
+  border-top: 1px solid var(--surface-medium);
   z-index: 100;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 -4px 20px rgba(67, 58, 212, 0.08);
 }
 
 .nav-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 16px;
+  position: relative;
+}
+
+.nav-item:hover {
+  background: var(--primary-20);
+  transform: translateY(-1px);
 }
 
 .nav-icon {
-  width: 24px;
-  height: 24px;
-  background: #9ca3af;
-  border-radius: 4px;
+  width: 28px;
+  height: 28px;
+  background: var(--text-lighter);
+  border-radius: 12px;
   position: relative;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .home-icon::before {
   content: '🏠';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .wallet-icon::before {
   content: '💳';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .benefits-icon::before {
   content: '⚡';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .savings-icon::before {
   content: '⏰';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .more-icon::before {
   content: '⋯';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .nav-label {
-  font-size: 10px;
-  color: #6b7280;
+  font-size: 11px;
+  color: var(--text-light);
   font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: all 0.3s ease;
 }
 
 .nav-item.active .nav-label {
-  color: #6366f1;
+  color: var(--primary-100);
   font-weight: 600;
 }
 
 .nav-item.active .nav-icon {
-  background: #6366f1;
+  background: var(--primary-100);
+  box-shadow: 0 4px 12px rgba(67, 58, 212, 0.3);
+  transform: scale(1.1);
 }
 
 .nav-item.active .nav-icon::before {
   filter: brightness(0) invert(1);
+}
+
+.nav-item.active {
+  background: var(--primary-20);
+}
+
+.nav-item:hover .nav-icon {
+  background: var(--primary-60);
+  transform: scale(1.05);
+}
+
+.nav-item:hover .nav-label {
+  color: var(--primary-100);
 }

@@ -2,20 +2,21 @@
   width: 100%;
   max-width: 430px;
   margin: 0 auto;
-  background: #f8fafc;
+  background: linear-gradient(135deg, var(--background-90) 0%, var(--surface-light) 100%);
   min-height: 100vh;
   position: relative;
 }
 
 .content {
-  padding: 0 0 80px;
+  padding: 0 0 100px;
 }
 
 .section-title {
-  margin: 24px 20px 8px;
-  font-size: 18px;
-  font-weight: 600;
-  color: #1f2937;
+  margin: 32px 24px 16px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: -0.02em;
 }
 
 .limited-time-section {
@@ -28,49 +29,79 @@
 
 .level-cards {
   display: flex;
-  gap: 12px;
-  padding: 0 20px;
+  gap: 16px;
+  padding: 0 24px;
   overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.level-cards::-webkit-scrollbar {
+  display: none;
 }
 
 .level-card {
-  background: white;
-  border-radius: 16px;
-  padding: 16px;
-  min-width: 160px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: var(--surface-white);
+  border-radius: 24px;
+  padding: 20px;
+  min-width: 180px;
+  box-shadow: 0 6px 24px rgba(67, 58, 212, 0.1);
+  border: 1px solid var(--surface-medium);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.level-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(67, 58, 212, 0.15);
+  border-color: var(--primary-40);
 }
 
 .level-icon {
-  font-size: 24px;
-  margin-bottom: 8px;
+  font-size: 32px;
+  margin-bottom: 12px;
+  padding: 12px;
+  background: var(--primary-20);
+  border-radius: 16px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.level-card:hover .level-icon {
+  background: var(--primary-40);
+  transform: scale(1.1);
 }
 
 .level-card h4 {
-  margin: 0 0 8px 0;
-  font-size: 14px;
-  font-weight: 600;
-  color: #1f2937;
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: -0.01em;
 }
 
 .level-benefit {
-  margin: 0 0 4px 0;
-  font-size: 14px;
-  font-weight: 600;
-  color: #6366f1;
+  margin: 0 0 6px 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary-100);
+  letter-spacing: -0.01em;
 }
 
 .level-desc {
-  margin: 0 0 8px 0;
-  font-size: 12px;
-  color: #6b7280;
-  line-height: 1.4;
+  margin: 0 0 10px 0;
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.5;
+  letter-spacing: -0.01em;
 }
 
 .level-limit {
   margin: 0;
   font-size: 12px;
-  color: #6b7280;
+  color: var(--text-lighter);
+  font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
 .coupons-section, .personal-pay-section, .home-section {
@@ -79,30 +110,40 @@
 
 .pay-cards {
   display: flex;
-  gap: 12px;
-  padding: 0 20px;
+  gap: 16px;
+  padding: 0 24px;
   overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.pay-cards::-webkit-scrollbar {
+  display: none;
 }
 
 .pay-cards .promo-card {
   margin: 0;
-  min-width: 200px;
+  min-width: 220px;
 }
 
 .discover-more-btn {
-  background: #6366f1;
+  background: linear-gradient(135deg, var(--primary-100) 0%, var(--primary-80) 100%);
   color: white;
   border: none;
-  border-radius: 12px;
-  padding: 16px;
-  margin: 24px 20px;
-  width: calc(100% - 40px);
-  font-size: 16px;
-  font-weight: 600;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 32px 24px;
+  width: calc(100% - 48px);
+  font-size: 17px;
+  font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.3s ease;
+  letter-spacing: -0.01em;
+  box-shadow: 0 6px 20px rgba(67, 58, 212, 0.3);
 }
 
 .discover-more-btn:hover {
-  background: #5856eb;
+  background: linear-gradient(135deg, var(--primary-80) 0%, var(--primary-60) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(67, 58, 212, 0.4);
 }

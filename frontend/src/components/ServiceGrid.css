@@ -1,38 +1,67 @@
 .service-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  margin: 16px 0;
+  gap: 16px;
+  margin: 20px 16px;
 }
 
 .service-item {
-  background: white;
-  padding: 16px;
-  border-radius: 12px;
+  background: var(--surface-white);
+  padding: 20px 16px;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   text-align: center;
   position: relative;
+  border: 1px solid var(--surface-medium);
+  box-shadow: 0 4px 16px rgba(67, 58, 212, 0.08);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(67, 58, 212, 0.12);
+  border-color: var(--primary-40);
 }
 
 .service-icon {
-  font-size: 24px;
+  font-size: 32px;
+  padding: 12px;
+  background: var(--primary-20);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.service-item:hover .service-icon {
+  background: var(--primary-40);
+  transform: scale(1.1);
 }
 
 .service-label {
-  font-size: 12px;
-  color: #374151;
+  font-size: 13px;
+  color: var(--text-medium);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: all 0.2s ease;
+}
+
+.service-item:hover .service-label {
+  color: var(--text-dark);
 }
 
 .service-badge {
   position: absolute;
-  top: 4px;
-  right: 4px;
-  background: #10b981;
+  top: 8px;
+  right: 8px;
+  background: var(--success);
   color: white;
   font-size: 10px;
-  padding: 2px 6px;
-  border-radius: 4px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 8px;
+  letter-spacing: 0.2px;
+  box-shadow: 0 2px 6px rgba(0, 170, 94, 0.3);
 }

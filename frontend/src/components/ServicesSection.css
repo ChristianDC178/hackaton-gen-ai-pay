@@ -2,104 +2,192 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin: 16px 0;
+  margin: 20px 16px;
 }
 
 .service-card {
-  background: white;
-  padding: 16px;
-  border-radius: 12px;
+  background: var(--surface-white);
+  padding: 20px;
+  border-radius: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: 1px solid var(--surface-medium);
+  box-shadow: 0 4px 16px rgba(67, 58, 212, 0.06);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(67, 58, 212, 0.1);
+  border-color: var(--primary-40);
 }
 
 .service-header {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 }
 
 .service-badge {
-  background: #10b981;
+  background: var(--success);
   color: white;
   font-size: 10px;
-  padding: 2px 6px;
-  border-radius: 4px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 8px;
+  letter-spacing: 0.2px;
+  box-shadow: 0 2px 6px rgba(0, 170, 94, 0.3);
 }
 
 .service-title {
   font-weight: 600;
-  color: #374151;
+  color: var(--text-medium);
+  font-size: 15px;
+  letter-spacing: -0.01em;
 }
 
 .service-icon {
-  font-size: 20px;
+  font-size: 24px;
+  color: var(--primary-80);
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1);
+  color: var(--primary-100);
 }
 
 .promo-card {
-  background: white;
-  padding: 16px;
-  border-radius: 12px;
+  background: var(--surface-white);
+  padding: 20px;
+  border-radius: 20px;
   display: flex;
-  gap: 16px;
+  gap: 20px;
   align-items: center;
+  border: 1px solid var(--surface-medium);
+  box-shadow: 0 4px 16px rgba(67, 58, 212, 0.06);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.promo-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(67, 58, 212, 0.1);
 }
 
 .promo-number {
-  background: #6366f1;
+  background: linear-gradient(135deg, var(--primary-100) 0%, var(--primary-80) 100%);
   color: white;
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 16px;
+  box-shadow: 0 4px 12px rgba(67, 58, 212, 0.3);
+  transition: all 0.3s ease;
+}
+
+.promo-card:hover .promo-number {
+  transform: scale(1.1);
 }
 
 .promo-content h4 {
-  margin: 0 0 4px 0;
-  font-size: 14px;
-  color: #374151;
+  margin: 0 0 6px 0;
+  font-size: 15px;
+  color: var(--text-dark);
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 .promo-content p {
   margin: 0;
-  font-size: 12px;
-  color: #6b7280;
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
 }
 
 .offer-card {
-  background: #fef3c7;
-  padding: 16px;
-  border-radius: 12px;
+  background: linear-gradient(135deg, var(--secondary-orange-20) 0%, var(--secondary-orange-40) 100%);
+  padding: 20px;
+  border-radius: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: 1px solid var(--secondary-orange-60);
+  box-shadow: 0 4px 16px rgba(255, 174, 72, 0.15);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.offer-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.3) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.offer-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(255, 174, 72, 0.25);
 }
 
 .offer-content h4 {
-  margin: 0 0 4px 0;
-  font-size: 10px;
-  color: #92400e;
+  margin: 0 0 6px 0;
+  font-size: 11px;
+  color: var(--secondary-orange-100);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .offer-content h3 {
-  margin: 0 0 8px 0;
-  font-size: 14px;
-  color: #92400e;
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  color: var(--text-dark);
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .offer-content button {
-  background: none;
+  background: var(--secondary-orange-100);
   border: none;
-  color: #92400e;
+  color: white;
   font-size: 12px;
+  font-weight: 600;
   cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  letter-spacing: -0.01em;
+}
+
+.offer-content button:hover {
+  background: var(--secondary-orange-80);
+  transform: translateY(-1px);
 }
 
 .offer-logo {
-  font-weight: 600;
-  color: #92400e;
+  font-weight: 700;
+  color: var(--secondary-orange-100);
+  font-size: 18px;
+  background: rgba(255, 98, 0, 0.1);
+  padding: 12px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.offer-card:hover .offer-logo {
+  transform: scale(1.1);
 }

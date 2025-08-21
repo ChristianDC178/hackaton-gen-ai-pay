@@ -1,8 +1,6 @@
 import React from 'react'
 import HomeHeader from '../components/HomeHeader'
 import BalanceCard from '../components/BalanceCard'
-import ActionButtons from '../components/ActionButtons'
-import LoanSection from '../components/LoanSection'
 import VisaPromo from '../components/VisaPromo'
 import ServiceGrid from '../components/ServiceGrid'
 import SavingsPromo from '../components/SavingsPromo'
@@ -16,14 +14,21 @@ const Home: React.FC = () => {
       <HomeHeader />
       <div className="content">
         <BalanceCard />
-        <ActionButtons />
-        <LoanSection />
         <VisaPromo />
         <ServiceGrid />
         <SavingsPromo />
         <ServicesSection />
       </div>
       <BottomNav />
+      
+      {/* Pepa Floating Button */}
+      <div className="pepa-floating-btn">
+        <span className="pepa-emoji">🐷</span>
+        <div className="pepa-tooltip">
+          <span>¡Hola! Soy Pepa 👋</span>
+          <span>Hacé click para chatear</span>
+        </div>
+      </div>
     </div>
   )
 }

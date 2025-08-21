@@ -2,6 +2,9 @@
   width: 100%;
   max-width: 430px;
   margin: 0 auto;
-  background: white;
+  background: var(--surface-white);
   min-height: 100vh;
+  box-shadow: 0 0 40px rgba(67, 58, 212, 0.1);
+  position: relative;
+  overflow: hidden;
 }
