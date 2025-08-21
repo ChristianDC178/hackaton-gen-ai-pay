@@ -4,6 +4,36 @@ import warnings
 warnings.filterwarnings(action="ignore", message=r"datetime.datetime.utcnow") 
 from strands import Agent
 
+json_data_example = """{
+  "message": "Hola Juan, estas son las promociones disponibles en la provincia de Córdoba:",
+  "promociones": [
+    {
+      "name": "McDonald's",
+      "benefitValue": "15% de reintegro",
+      "days": [
+        "Lunes, Martes, Miércoles, Jueves, Viernes"
+      ],
+      "heading": "Gastronomía",
+      "locations": [
+        {
+          "name": "Av. Colón 550, Córdoba",
+          "lat": "-31.413500",
+          "lon": "-64.181000"
+        },
+        {
+          "name": "Dino Mall Ruta 20, Córdoba",
+          "lat": "-31.418800",
+          "lon": "-64.229100"
+        },
+        {
+          "name": "Nuevocentro Shopping, Córdoba",
+          "lat": "-31.412345",
+          "lon": "-64.204567"
+        }
+      ]
+    }]
+}"""
+  
 
 # JSON data as multiline string
 json_data = """
@@ -300,9 +330,12 @@ def get_benefits(province, name):
 
 # Send a message to the agent
   response = agent(f"""Filtra las promociones en la provincia {province}. 
-                      Dale la salida en formato json, asegurate de tener los campos de name, benefitValue, days, heading, locations.
-                      Y agrega un campo message con un saludo inicial preparado por ti usando {name}.
-                      Solo debes retornar un único json con  toda información, no usar markdown""")
+                       La salida tiene que ser en formato json y asegurate de que estén los campos de name, benefitValue, days, heading, locations.
+                       Además en el root del json agrega un campo message con un saludo inicial preparado por ti usando {name}.
+                       No usar markdown
+                       ### Ejemplo de respuesta:
+                       {json_data_example}
+                       """)
   
   #response2 = agent(f"""Filtra las promociones en la provincia {province}. 
   #                    Solo debes retornar un único json con  toda información, no usar markdown""")
@@ -326,4 +359,4 @@ def lambda_handler(event, context):
     
     return get_benefits(province, name)
 
-#get_benefits("Cordoba", "Juan")
+#get_benefits("buenos Aires", "Juan")
