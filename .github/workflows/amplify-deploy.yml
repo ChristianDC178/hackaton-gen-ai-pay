@@ -1,47 +1,28 @@
-name: Deploy to AWS Amplify
+# This workflow is disabled - using Amplify native CI/CD instead
+# Amplify will automatically detect changes in frontend/ folder
+# and deploy using the amplify.yml configuration
 
-on:
-  push:
-    branches: [ main, master ]
-    paths:
-      - 'frontend/**'
-  pull_request:
-    branches: [ main, master ]
-    paths:
-      - 'frontend/**'
+# To enable this workflow:
+# 1. Add AWS_ACCESS_KEY_ID secret to GitHub repository
+# 2. Add AWS_SECRET_ACCESS_KEY secret to GitHub repository  
+# 3. Add AMPLIFY_APP_ID secret to GitHub repository
+# 4. Uncomment the workflow below
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
-        cache: 'yarn'
-        cache-dependency-path: frontend/yarn.lock
-        
-    - name: Install dependencies
-      run: |
-        cd frontend
-        yarn install --frozen-lockfile
-        
-    - name: Build application
-      run: |
-        cd frontend
-        yarn build
-        
-    - name: Deploy to Amplify
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-west-2
-        
-    - name: Trigger Amplify deployment
-      run: |
-        aws amplify start-job --app-id ${{ secrets.AMPLIFY_APP_ID }} --branch-name main --job-type RELEASE
+# name: Deploy to AWS Amplify
+# on:
+#   push:
+#     branches: [ main, master ]
+#     paths:
+#       - 'frontend/**'
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - uses: actions/checkout@v4
+#     - uses: actions/setup-node@v4
+#       with:
+#         node-version: '18'
+#         cache: 'yarn'
+#         cache-dependency-path: frontend/yarn.lock
+#     - run: cd frontend && yarn install --frozen-lockfile
+#     - run: cd frontend && yarn build
