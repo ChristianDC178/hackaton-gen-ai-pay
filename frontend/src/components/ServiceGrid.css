@@ -1,0 +1,39 @@
+.service-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 16px 0;
+}
+
+.service-item {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.service-icon {
+  font-size: 24px;
+}
+
+.service-label {
+  font-size: 12px;
+  color: #374151;
+}
+
+.service-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #10B981;
+  color: white;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 8px;
+}
