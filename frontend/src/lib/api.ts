@@ -8,8 +8,8 @@ export const api = axios.create({
   },
 })
 
-export const getApi = async () => {
-  const { data } = await api.get('/api')
+export const postApi = async (body: { province: string; name: string }) => {
+  const { data } = await api.post('/api', body)
   return data
 }
 

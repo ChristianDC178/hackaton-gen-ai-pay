@@ -1,10 +1,10 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { getApi, postLogin } from "../lib/api";
+import { postApi, postLogin } from "../lib/api";
 
-export const useGetApi = () => {
-  return useQuery({
-    queryKey: ["get-api"],
-    queryFn: () => getApi(),
+export const usePostApi = () => {
+  return useMutation({
+    mutationKey: ["post-api"],
+    mutationFn: (body: { province: string; name: string }) => postApi(body),
   });
 };
 
