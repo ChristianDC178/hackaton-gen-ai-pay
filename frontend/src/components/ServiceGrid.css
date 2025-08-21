@@ -1,21 +1,20 @@
 .service-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
   margin: 16px 0;
 }
 
 .service-item {
   background: white;
-  border-radius: 12px;
   padding: 16px;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
   text-align: center;
   position: relative;
-  cursor: pointer;
 }
 
 .service-icon {
@@ -29,11 +28,11 @@
 
 .service-badge {
   position: absolute;
-  top: 8px;
-  right: 8px;
-  background: #10B981;
+  top: 4px;
+  right: 4px;
+  background: #10b981;
   color: white;
   font-size: 10px;
   padding: 2px 6px;
-  border-radius: 8px;
+  border-radius: 4px;
 }

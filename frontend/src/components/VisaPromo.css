@@ -1,17 +1,17 @@
 .visa-promo {
-  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
-  border-radius: 12px;
+  background: #00d4aa;
+  color: white;
   padding: 16px;
   margin: 16px 0;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   gap: 12px;
-  color: white;
 }
 
 .visa-logo {
-  font-weight: 700;
-  font-size: 16px;
+  font-weight: bold;
+  font-size: 14px;
 }
 
 .visa-text {
@@ -21,11 +21,10 @@
 
 .visa-btn {
   background: white;
-  color: #10B981;
+  color: #00d4aa;
   border: none;
   padding: 8px 16px;
   border-radius: 8px;
-  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
 }

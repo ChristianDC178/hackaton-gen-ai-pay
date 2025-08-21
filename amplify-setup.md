@@ -1,33 +1,32 @@
-# Configuración CI/CD con AWS Amplify
+# AWS Amplify CI/CD - Configuración Completa ✅
 
-## Deployment automático configurado ✅
+## Estado: Listo para deployment sin errores
 
-Amplify detecta automáticamente cambios en `frontend/` y deploya usando `amplify.yml`.
+### Configuración optimizada:
+- ✅ **Amplify nativo** - Sin GitHub Actions (evita errores de credenciales)
+- ✅ **React Router v6.26.2** - Compatible con Node.js 18
+- ✅ **Todos los CSS creados** - Sin errores de importación
+- ✅ **Build verificado** - Funciona correctamente
+- ✅ **amplify.yml simplificado** - Sin headers que puedan causar errores
 
-### Configuración actual:
+### Rutas configuradas:
+- `/` → Home (balance $250.578, acciones, préstamos)
+- `/beneficios` → Beneficios (promociones Personal Pay)
 
-1. **Build automático** - Cada push a `frontend/` activa el build
-2. **Node.js 18** - Compatible con react-router-dom v6.26.2
-3. **Yarn con frozen-lockfile** - Builds consistentes
-4. **Cache optimizado** - Headers HTTP para mejor performance
+### Deployment automático:
+Cada push a `frontend/` activa:
+1. Detección automática por Amplify
+2. `yarn install --frozen-lockfile`
+3. `yarn build`
+4. Deploy a producción
 
-### URLs importantes:
+### URLs:
 - **Amplify Console**: https://console.aws.amazon.com/amplify/
-- **App actual**: http://banking-app-hackaton-2024.s3-website-us-west-2.amazonaws.com
+- **App**: http://banking-app-hackaton-2024.s3-website-us-west-2.amazonaws.com
 
-### Estructura de rutas:
-- `/` → Página Home (balance, acciones, préstamos)
-- `/beneficios` → Página Beneficios (promociones, ofertas)
-
-### Para habilitar GitHub Actions (opcional):
-1. Agregar secrets: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AMPLIFY_APP_ID`
-2. Descomentar workflow en `.github/workflows/amplify-deploy.yml`
-
-### Comandos útiles:
+### Verificación local:
 ```bash
-# Build local
-cd frontend && yarn build
-
-# Ver logs de Amplify
-aws amplify list-apps
+cd frontend
+yarn install
+yarn build  # ✅ Sin errores
 ```
