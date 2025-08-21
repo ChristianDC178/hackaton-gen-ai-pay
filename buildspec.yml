@@ -6,22 +6,30 @@ phases:
       nodejs: 18
     commands:
       - echo Installing dependencies...
+      - echo "Current directory:" && pwd
+      - echo "Directory contents:" && ls -la
+      - echo "Frontend directory contents:" && ls -la frontend/
       - cd frontend
+      - echo "Now in frontend directory:" && pwd
       - npm install
   
   pre_build:
     commands:
       - echo Pre-build phase started on `date`
+      - cd frontend
       
   build:
     commands:
       - echo Build started on `date`
+      - cd frontend
       - npm run build
       - echo Build completed on `date`
+      - echo "Dist directory contents:" && ls -la dist/
       
   post_build:
     commands:
       - echo Post-build phase started on `date`
+      - cd frontend
       - echo Syncing files to S3...
       - aws s3 sync dist/ s3://banking-app-hackaton-frontend/ --delete
       - echo Creating CloudFront invalidation...
