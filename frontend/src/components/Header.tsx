@@ -7,24 +7,29 @@ const Header: React.FC = () => {
       <div className="status-bar">
         <span className="time">12:30</span>
         <div className="status-icons">
-          <span className="signal">📶</span>
-          <span className="wifi">📶</span>
-          <span className="battery">🔋</span>
+          <div className="signal-bars"></div>
+          <div className="wifi-icon"></div>
+          <div className="battery-icon"></div>
         </div>
       </div>
       <div className="header-content">
-        <div className="profile">
-          <div className="avatar">R</div>
+        <div className="greeting">
+          <h2>Beneficios</h2>
         </div>
         <div className="header-actions">
-          <span className="level">Nivel ⓘ</span>
-          <span className="notifications">🔔</span>
+          <span className="level">Nivel <span className="info-icon">ⓘ</span></span>
         </div>
       </div>
-      <div className="tabs">
-        <button className="tab active">Cuentas</button>
-        <button className="tab">Préstamos</button>
-        <button className="tab">Mi negocio</button>
+      <div className="search-container">
+        <div className="search-bar">
+          <span className="search-icon">🔍</span>
+          <input type="text" placeholder="Buscar..." />
+        </div>
+      </div>
+      <div className="category-tabs">
+        <button className="category-btn active">Pago de servicios</button>
+        <button className="category-btn">Supermercados</button>
+        <button className="category-btn">Combustible</button>
       </div>
     </div>
   )

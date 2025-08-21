@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../components/Header'
+import HomeHeader from '../components/HomeHeader'
 import BalanceCard from '../components/BalanceCard'
 import ActionButtons from '../components/ActionButtons'
 import LoanSection from '../components/LoanSection'
@@ -13,7 +13,7 @@ import './Home.css'
 const Home: React.FC = () => {
   return (
     <div className="home">
-      <Header />
+      <HomeHeader />
       <div className="content">
         <BalanceCard />
         <ActionButtons />

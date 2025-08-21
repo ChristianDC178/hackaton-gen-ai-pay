@@ -9,7 +9,8 @@
   display: flex;
   justify-content: space-around;
   padding: 12px 0 20px;
-  border-top: 1px solid #E5E7EB;
+  border-top: 1px solid #e5e7eb;
+  z-index: 100;
 }
 
 .nav-item {
@@ -18,17 +19,77 @@
   align-items: center;
   gap: 4px;
   cursor: pointer;
+  transition: all 0.2s;
 }
 
 .nav-icon {
-  font-size: 20px;
+  width: 24px;
+  height: 24px;
+  background: #9ca3af;
+  border-radius: 4px;
+  position: relative;
+}
+
+.home-icon::before {
+  content: '🏠';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+}
+
+.wallet-icon::before {
+  content: '💳';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+}
+
+.benefits-icon::before {
+  content: '⚡';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+}
+
+.savings-icon::before {
+  content: '⏰';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+}
+
+.more-icon::before {
+  content: '⋯';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
 }
 
 .nav-label {
   font-size: 10px;
-  color: #6B7280;
+  color: #6b7280;
+  font-weight: 500;
 }
 
 .nav-item.active .nav-label {
-  color: #4F46E5;
+  color: #6366f1;
+  font-weight: 600;
+}
+
+.nav-item.active .nav-icon {
+  background: #6366f1;
+}
+
+.nav-item.active .nav-icon::before {
+  filter: brightness(0) invert(1);
 }
